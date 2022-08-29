@@ -1,14 +1,18 @@
 import os
-from pynput.keyboard import Controller
 from PIL import Image, ImageTk
+from pynput.keyboard import *
 import pyautogui
 import customtkinter
-import keyboard as keyboard1
 import threading
 import pydirectinput
 
 customtkinter.set_appearance_mode("black")
 customtkinter.set_default_color_theme("blue")
+
+autoclick_key = Key.f5
+holdm_key = Key.f6
+
+pause = False
 
 
 class App(customtkinter.CTk):
@@ -77,37 +81,60 @@ class App(customtkinter.CTk):
         threading.Thread(target=self.autoClick).start()
         self.start_auto_button.configure(state="disabled")
 
+    def on_press(self, key):
+        global pause
+
+        if self.auto1 and key == autoclick_key:
+            self.auto1 = False
+            pause = True
+            self.stop_button2()
+
+        if self.auto and key == holdm_key:
+            self.auto = False
+            pause = True
+            self.stop_button1()
+
     def autoHold(self):
-        auto = True
+        self.auto = True
+        self.auto1 = False
+        pause = False
 
-        keyboard = Controller()
+        lis = Listener(on_press=self.on_press)
+        lis.start()
 
-        while auto:
-            pyautogui.mouseDown()
-            if keyboard1.is_pressed('f6'):
-                auto = False
-                pyautogui.mouseUp()
-                self.start_hold_button.configure(state="enabled")
+        while self.auto:
+            if not pause:
+                pyautogui.mouseDown()
+            if pause:
                 break
+        lis.stop()
 
     def autoClick(self):
-        auto1 = True
+        self.auto = False
+        self.auto1 = True
+        pause = False
 
-        while auto1:
-            pyautogui.click()
-            pydirectinput.press('x')
-            if keyboard1.is_pressed('f5'):
-                auto1 = False
-                pyautogui.mouseUp()
-                self.start_auto_button.configure(state="enabled")
+        lis = Listener(on_press=self.on_press)
+        lis.start()
+
+        while self.auto1:
+            if not pause:
+                pyautogui.click()
+                pydirectinput.press('x')
+            if pause:
                 break
+        lis.stop()
 
     def stop_button1(self):
-        auto = False
+        pause = True
+        self.auto = False
+        pyautogui.mouseUp()
         self.start_hold_button.configure(state="enabled")
 
     def stop_button2(self):
-        auto1 = False
+        pause = True
+        self.auto1 = False
+        pyautogui.mouseUp()
         self.start_auto_button.configure(state="enabled")
 
     def on_close(self, event=0):
