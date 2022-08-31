@@ -12,6 +12,8 @@ customtkinter.set_default_color_theme("blue")
 autoclick_key = Key.f5
 holdm_key = Key.f6
 
+button1 = "left"
+
 pause = False
 
 
@@ -48,7 +50,7 @@ class App(customtkinter.CTk):
         self.title.grid(row=1, column=1, pady=10)
 
         self.hold_down_text = customtkinter.CTkLabel(
-            master=self.frame, text="Mouse hold down", text_font=("Roboto Medium", -16))
+            master=self.frame, text="Mouse Hold Down", text_font=("Roboto Medium", -16))
         self.hold_down_text.grid(row=2, column=1, pady=10)
 
         self.start_hold_button = customtkinter.CTkButton(master=self.frame, text="Start", fg_color=(
@@ -72,6 +74,26 @@ class App(customtkinter.CTk):
         self.stop_auto_button = customtkinter.CTkButton(master=self.frame, text="Stop", fg_color=(
             "black"), text_font=("Roboto Medium", -16), command=self.stop_button2)
         self.stop_auto_button.grid(row=7, column=1, pady=10)
+
+        self.buttonmenu_var = customtkinter.StringVar(value="left")
+
+        self.buttonmenu = customtkinter.CTkOptionMenu(master=self.frame, text_font=(
+            "Roboto Medium", -16), width=100, fg_color="black", button_color="black", variable=self.buttonmenu_var, command=self.buttonmenu_event, values=["left", "middle", "right"])
+        self.buttonmenu.place(x=90, y=370)
+
+        self.mousebuttontxt = customtkinter.CTkLabel(
+            master=self.frame, text="Mouse Button:", text_font=("Roboto Medium", -16))
+        self.mousebuttontxt.place(x=70, y=340)
+
+    def buttonmenu_event(self, choice):
+        global button1
+
+        if choice == "left":
+            button1 = "left"
+        if choice == "middle":
+            button1 = "middle"
+        if choice == "right":
+            button1 = "right"
 
     def start_button1(self):
         threading.Thread(target=self.autoHold).start()
@@ -104,7 +126,12 @@ class App(customtkinter.CTk):
 
         while self.auto:
             if not pause:
-                pyautogui.mouseDown()
+                if button1 == "left":
+                    pyautogui.mouseDown(button="left")
+                if button1 == "middle":
+                    pyautogui.mouseDown(button="middle")
+                if button1 == "right":
+                    pyautogui.mouseDown(button="right")
             if pause:
                 break
         lis.stop()
@@ -119,8 +146,12 @@ class App(customtkinter.CTk):
 
         while self.auto1:
             if not pause:
-                pyautogui.click()
-                pydirectinput.press('x')
+                if button1 == "left":
+                    pyautogui.leftClick()
+                if button1 == "middle":
+                    pyautogui.middleClick()
+                if button1 == "right":
+                    pyautogui.rightClick()
             if pause:
                 break
         lis.stop()
@@ -128,7 +159,12 @@ class App(customtkinter.CTk):
     def stop_button1(self):
         pause = True
         self.auto = False
-        pyautogui.mouseUp()
+        if button1 == "left":
+            pyautogui.mouseUp(button="left")
+        if button1 == "middle":
+            pyautogui.mouseUp(button="middle")
+        if button1 == "right":
+            pyautogui.mouseUp(button="right")
         self.start_hold_button.configure(state="enabled")
 
     def stop_button2(self):
