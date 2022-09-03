@@ -4,7 +4,6 @@ from pynput.keyboard import *
 import pyautogui
 import customtkinter
 import threading
-import pydirectinput
 
 customtkinter.set_appearance_mode("black")
 customtkinter.set_default_color_theme("blue")
@@ -13,6 +12,7 @@ autoclick_key = Key.f5
 holdm_key = Key.f6
 
 button1 = "left"
+clicktype = "Single"
 
 pause = False
 
@@ -23,7 +23,7 @@ class App(customtkinter.CTk):
     auto1 = False
 
     WIDTH = 300
-    HEIGHT = 500
+    HEIGHT = 510
 
     def __init__(self):
         super().__init__()
@@ -78,12 +78,37 @@ class App(customtkinter.CTk):
         self.buttonmenu_var = customtkinter.StringVar(value="left")
 
         self.buttonmenu = customtkinter.CTkOptionMenu(master=self.frame, text_font=(
-            "Roboto Medium", -16), width=100, fg_color="black", button_color="black", variable=self.buttonmenu_var, command=self.buttonmenu_event, values=["left", "middle", "right"])
-        self.buttonmenu.place(x=90, y=370)
+            "Roboto Medium", -14), width=100, fg_color="black", button_color="black", variable=self.buttonmenu_var, command=self.buttonmenu_event, values=["left", "middle", "right"])
+        self.buttonmenu.place(x=30, y=370)
 
         self.mousebuttontxt = customtkinter.CTkLabel(
-            master=self.frame, text="Mouse Button:", text_font=("Roboto Medium", -16))
-        self.mousebuttontxt.place(x=70, y=340)
+            master=self.frame, text="Mouse Button:", text_font=("Roboto Medium", -15))
+        self.mousebuttontxt.place(x=12, y=340)
+
+        self.clicktype_var = customtkinter.StringVar(value="Single")
+
+        self.clicktypemenu = customtkinter.CTkOptionMenu(master=self.frame, text_font=(
+            "Roboto Medium", -14), width=100, fg_color="black", button_color="black", variable=self.clicktype_var, command=self.clicktype_event, values=["Single", "Double"])
+        self.clicktypemenu.place(x=150, y=370)
+
+        self.clicktypetxt = customtkinter.CTkLabel(
+            master=self.frame, text="Click Type:", text_font=("Roboto Medium", -15))
+        self.clicktypetxt.place(x=130, y=340)
+
+        self.clickinterval_var = customtkinter.StringVar(
+            master=self.frame, value=str(0.01))
+
+        self.clickinterval = customtkinter.CTkEntry(master=self.frame, text_font=(
+            "Roboto Medium", -14), width=80, textvariable=self.clickinterval_var)
+        self.clickinterval.place(x=100, y=440)
+
+        self.clickintervaltxt = customtkinter.CTkLabel(
+            master=self.frame, text="Click interval", text_font=("Roboto Medium", -14))
+        self.clickintervaltxt.place(x=70, y=410)
+
+        self.secondstxt = customtkinter.CTkLabel(
+            master=self.frame, text="seconds", text_font=("Roboto Medium", -13), width=10)
+        self.secondstxt.place(x=185, y=445)
 
     def buttonmenu_event(self, choice):
         global button1
@@ -94,6 +119,14 @@ class App(customtkinter.CTk):
             button1 = "middle"
         if choice == "right":
             button1 = "right"
+
+    def clicktype_event(self, choice):
+        global clicktype
+
+        if choice == "Single":
+            clicktype = "Single"
+        if choice == "Double":
+            clicktype = "Double"
 
     def start_button1(self):
         threading.Thread(target=self.autoHold).start()
@@ -144,14 +177,29 @@ class App(customtkinter.CTk):
         lis = Listener(on_press=self.on_press)
         lis.start()
 
+        self.interval = float(self.clickinterval.get())
+
         while self.auto1:
             if not pause:
-                if button1 == "left":
-                    pyautogui.leftClick()
-                if button1 == "middle":
-                    pyautogui.middleClick()
-                if button1 == "right":
-                    pyautogui.rightClick()
+                if button1 == "left" and clicktype == "Single":
+                    pyautogui.click(button="left")
+                    pyautogui.PAUSE = self.interval
+                if button1 == "middle" and clicktype == "Single":
+                    pyautogui.click(button="middle")
+                    pyautogui.PAUSE = self.interval
+                if button1 == "right" and clicktype == "Single":
+                    pyautogui.click(button="right")
+                    pyautogui.PAUSE = self.interval
+
+                if button1 == "left" and clicktype == "Double":
+                    pyautogui.doubleClick(button="left")
+                    pyautogui.PAUSE = self.interval
+                if button1 == "middle" and clicktype == "Double":
+                    pyautogui.doubleClick(button="middle")
+                    pyautogui.PAUSE = self.interval
+                if button1 == "right" and clicktype == "Double":
+                    pyautogui.doubleClick(button="right")
+                    pyautogui.PAUSE = self.interval
             if pause:
                 break
         lis.stop()
@@ -159,18 +207,27 @@ class App(customtkinter.CTk):
     def stop_button1(self):
         pause = True
         self.auto = False
+
         if button1 == "left":
             pyautogui.mouseUp(button="left")
         if button1 == "middle":
             pyautogui.mouseUp(button="middle")
         if button1 == "right":
             pyautogui.mouseUp(button="right")
+
         self.start_hold_button.configure(state="enabled")
 
     def stop_button2(self):
         pause = True
         self.auto1 = False
-        pyautogui.mouseUp()
+
+        if button1 == "left" and clicktype == "Single":
+            pyautogui.mouseUp(button="left")
+        if button1 == "middle" and clicktype == "Single":
+            pyautogui.mouseUp(button="middle")
+        if button1 == "right" and clicktype == "Single":
+            pyautogui.mouseUp(button="right")
+
         self.start_auto_button.configure(state="enabled")
 
     def on_close(self, event=0):
