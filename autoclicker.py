@@ -5,7 +5,7 @@ import pyautogui
 import customtkinter
 import threading
 
-customtkinter.set_appearance_mode("black")
+customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("blue")
 
 autoclick_key = Key.f5
