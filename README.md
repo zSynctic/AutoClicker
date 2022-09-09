@@ -2,7 +2,7 @@
 
 A simple AutoClicker that can automatically click the mouse so fast and hold the mouse button down <br />
 
-The new version has two new features that let you choose between single clicking and double-clicking, and set the click interval in seconds!
+The new version is only bug fixes and the program was intended to have a dark background but that was a bug and now its fixed in the new version!
 
 The new versions will have two options for installing a zip file or a setup.exe file that will download it for you and you can have a desktop shortcut
 
