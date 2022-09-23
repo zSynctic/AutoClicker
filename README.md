@@ -1,10 +1,8 @@
 # AutoClicker
 
-A simple AutoClicker that can automatically click the mouse so fast and hold the mouse button down <br />
+A simple easy-to-use AutoClicker that can automatically click the mouse so fast and hold the mouse button down <br />
 
-The new version is only bug fixes and the program was intended to have a dark background but that was a bug and now its fixed in the new version!
-
-The new versions will have two options for installing a zip file or a setup.exe file that will download it for you and you can have a desktop shortcut
+Bored of the old looking autoclickers here is a powerful easy-to-use autoclicker with many features and Modern GUI! <br />
 
 # Features
 
