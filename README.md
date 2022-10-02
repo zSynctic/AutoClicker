@@ -1,3 +1,5 @@
+![SourceForge - Downloads](https://img.shields.io/sourceforge/dt/autoClickersync)
+
 # AutoClicker
 
 A simple easy-to-use AutoClicker that can automatically click the mouse so fast and hold the mouse button down <br />
