@@ -8,7 +8,7 @@ Bored of the old looking autoclickers here is a powerful easy-to-use autoclicker
 
 this is a simple easy-to-use AutoClicker that can automatically click the mouse so fast and hold the mouse button down and has many other features! <br />
 
-![Screenshot 2022-09-04 155220](https://user-images.githubusercontent.com/71632495/193451007-f3b7ae89-4625-4470-ab85-4585c906aacd.png)
+![Screenshot 2022-10-02 151244](https://user-images.githubusercontent.com/71632495/193451078-de5316e6-e7de-4897-9423-a114ffec36e3.png)
 
 # Features
 
