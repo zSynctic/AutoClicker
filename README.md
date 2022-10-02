@@ -1,12 +1,12 @@
 [![header](https://capsule-render.vercel.app/api?type=cylinder&color=timeGradient&section=header&text=AutoClicker&fontSize=90&animation=fadeIn)](https://github.com/zSynctic/AutoClicker)
 
 # What is a autoclicker?
-A autoclicker is a program that can automatically click or press buttons
+**A autoclicker is a program that can automatically click or press buttons.**
 
 # Why use this AutoClicker?
-Bored of the old looking autoclickers here is a powerful easy-to-use autoclicker with many features and Modern GUI! <br />
+**Bored of the old looking autoclickers here is a powerful easy-to-use autoclicker with many features and Modern GUI!** <br />
 
-this is a simple easy-to-use AutoClicker that can automatically click the mouse so fast and hold the mouse button down and has many other features! <br />
+**This is a simple easy-to-use AutoClicker that can automatically click the mouse so fast and hold the mouse button down and has many other features!** <br />
 
 More updates are on the way!
 
