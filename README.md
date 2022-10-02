@@ -1,5 +1,3 @@
-![SourceForge - Downloads](https://img.shields.io/sourceforge/dt/autoClickersync)
-
 # AutoClicker
 
 A simple easy-to-use AutoClicker that can automatically click the mouse so fast and hold the mouse button down <br />
@@ -19,3 +17,5 @@ Bored of the old looking autoclickers here is a powerful easy-to-use autoclicker
 9. 0% CPU Usage <br />
 10. Low Ram Usage <br />
 11. Set the click interval
+
+![SourceForge - Downloads](https://img.shields.io/sourceforge/dt/autoClickersync)
