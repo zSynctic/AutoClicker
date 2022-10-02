@@ -26,4 +26,5 @@ More updates are on the way!
 10. Low Ram Usage <br />
 11. Set the click interval
 
-![SourceForge - Downloads](https://img.shields.io/sourceforge/dt/autoClickersync)
+![Github - Downloads](https://img.shields.io/github/downloads/zSynctic/autoclicker/total?label=Github%20Downloads)
+![SourceForge - Downloads](https://img.shields.io/sourceforge/dt/autoclickersync?label=SourceForge%20Downloads)
