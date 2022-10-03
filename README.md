@@ -12,6 +12,12 @@
 
 ![Screenshot 2022-10-02 151244](https://user-images.githubusercontent.com/71632495/193451078-de5316e6-e7de-4897-9423-a114ffec36e3.png)
 
+## DOWNLOAD
+
+### [<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/zSynctic/AutoClicker?display_name=release&label=Windows&logo=Windows&logoColor=019df4&style=for-the-badge" width="350">](https://github.com/zSynctic/AutoClicker/releases/download/Executables/AutoClicker-1.0.3-setup.exe)
+
+### [![Download AutoClicker](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/autoclickersync/files/v1.0.3/)
+
 # Features
 
 1. Fast autoclicking
