@@ -118,15 +118,10 @@ class App(customtkinter.CTk):
                                                           variable=self.repeat_var, command=self.repeat_event, text_font=("Roboto Medium", -13), width=20, height=20)
         self.repeatstopped.place(x=20, y=170)
 
-        self.currentlocation = customtkinter.CTkCheckBox(
-            master=self.frame, text="current location", text_font=("Roboto Medium", -13), width=20, height=20)
-        self.currentlocation.place(x=20, y=220)
-
         self.repeattimes = spinbox.FloatSpinbox(
             master=self.frame, width=105, height=25, step_size=1)
         self.repeattimes.place(x=160, y=135)
 
-        self.currentlocation.select()
         self.repeattimes.set(1)
         self.repeatstopped.select()
 
