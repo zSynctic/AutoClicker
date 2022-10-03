@@ -1,9 +1,11 @@
 [![header](https://capsule-render.vercel.app/api?type=cylinder&color=timeGradient&section=header&text=AutoClicker&fontSize=90&animation=fadeIn)](https://github.com/zSynctic/AutoClicker)
 
 # What is a autoclicker?
+
 **A AutoClicker is a program that can automatically click or press buttons.**
 
 # Why use this AutoClicker?
+
 **Bored of the old-looking AutoClickers here is a powerful easy-to-use AutoClicker with many features and a Modern GUI!** <br />
 
 **This is a simple easy-to-use AutoClicker that can automatically click the mouse so fast and hold the mouse button down and has many other features!** <br />
@@ -17,6 +19,8 @@
 ### [<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/zSynctic/AutoClicker?display_name=release&label=Windows&logo=Windows&logoColor=019df4&style=for-the-badge" width="350">](https://github.com/zSynctic/AutoClicker/releases/download/Executables/AutoClicker-1.0.3-setup.exe)
 
 ### [![Download AutoClicker](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/autoclickersync/files/v1.0.3/)
+
+### Don't forget to give a ⭐!
 
 # Features
 
