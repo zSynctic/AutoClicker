@@ -1,18 +1,19 @@
+import sys
 import os
-from PIL import Image, ImageTk
-from pynput.keyboard import *
 import pyautogui
 import customtkinter
 import threading
-
-customtkinter.set_appearance_mode("dark")
-customtkinter.set_default_color_theme("blue")
+import spinbox
+from PIL import Image, ImageTk
+from pynput.keyboard import *
+from tkinter import IntVar
 
 autoclick_key = Key.f5
 holdm_key = Key.f6
 
 button1 = "left"
 clicktype = "Single"
+repeattype = 1
 
 pause = False
 
@@ -22,15 +23,27 @@ class App(customtkinter.CTk):
     auto = False
     auto1 = False
 
-    WIDTH = 300
-    HEIGHT = 510
+    WIDTH = 320
+    HEIGHT = 450
+
+    global resource
+
+    def resource(relative_path):
+        base_path = getattr(
+            sys,
+            '_MEIPASS',
+            os.path.dirname(os.path.abspath(__file__)))
+        return os.path.join(base_path, relative_path)
+
+    customtkinter.set_appearance_mode("dark")
+    customtkinter.set_default_color_theme("blue")
 
     def __init__(self):
         super().__init__()
 
-        p1 = ImageTk.PhotoImage(Image.open(os.path.abspath("mouse.ico")))
+        self.p1 = ImageTk.PhotoImage(file=resource("Assets/icon.ico"))
 
-        self.iconphoto(False, p1)
+        self.iconphoto(False, self.p1)
 
         self.title("AutoClicker")
         self.geometry(f"{self.WIDTH}x{self.HEIGHT}")
@@ -49,66 +62,73 @@ class App(customtkinter.CTk):
             master=self.frame, text="AutoClicker", text_font=("Roboto Medium", -16))
         self.title.grid(row=1, column=1, pady=10)
 
-        self.hold_down_text = customtkinter.CTkLabel(
-            master=self.frame, text="Mouse Hold Down", text_font=("Roboto Medium", -16))
-        self.hold_down_text.grid(row=2, column=1, pady=10)
-
-        self.start_hold_button = customtkinter.CTkButton(master=self.frame, text="Start", fg_color=(
-            "black"), text_font=("Roboto Medium", -16), command=self.start_button1)
-        self.start_hold_button.grid(row=3, column=1, pady=10)
-
         self.protocol("WM_DELETE_WINDOW", self.on_close)
-
-        self.stop_hold_button = customtkinter.CTkButton(master=self.frame, text="Stop", fg_color=(
-            "black"), text_font=("Roboto Medium", -16), command=self.stop_button1)
-        self.stop_hold_button.grid(row=4, column=1, pady=10)
-
-        self.auto_clicker = customtkinter.CTkLabel(
-            master=self.frame, text="AutoClick", text_font=("Roboto Medium", -16))
-        self.auto_clicker.grid(row=5, column=1, pady=10)
 
         self.start_auto_button = customtkinter.CTkButton(master=self.frame, text="Start", fg_color=(
             "black"), text_font=("Roboto Medium", -16), command=self.start_button2)
-        self.start_auto_button.grid(row=6, column=1, pady=10)
+        self.start_auto_button.place(x=80, y=275)
 
         self.stop_auto_button = customtkinter.CTkButton(master=self.frame, text="Stop", fg_color=(
-            "black"), text_font=("Roboto Medium", -16), command=self.stop_button2)
-        self.stop_auto_button.grid(row=7, column=1, pady=10)
+            "black"), text_font=("Roboto Medium", -16), state="disabled", command=self.stop_button2)
+        self.stop_auto_button.place(x=80, y=310)
 
         self.buttonmenu_var = customtkinter.StringVar(value="left")
 
         self.buttonmenu = customtkinter.CTkOptionMenu(master=self.frame, text_font=(
-            "Roboto Medium", -14), width=100, fg_color="black", button_color="black", variable=self.buttonmenu_var, command=self.buttonmenu_event, values=["left", "middle", "right"])
-        self.buttonmenu.place(x=30, y=370)
+            "Roboto Medium", -14), width=115, fg_color="black", button_color="black", variable=self.buttonmenu_var, command=self.buttonmenu_event, values=["left", "middle", "right"])
+        self.buttonmenu.place(x=20, y=90)
 
         self.mousebuttontxt = customtkinter.CTkLabel(
             master=self.frame, text="Mouse Button:", text_font=("Roboto Medium", -15))
-        self.mousebuttontxt.place(x=12, y=340)
+        self.mousebuttontxt.place(x=5, y=60)
 
         self.clicktype_var = customtkinter.StringVar(value="Single")
 
         self.clicktypemenu = customtkinter.CTkOptionMenu(master=self.frame, text_font=(
-            "Roboto Medium", -14), width=100, fg_color="black", button_color="black", variable=self.clicktype_var, command=self.clicktype_event, values=["Single", "Double"])
-        self.clicktypemenu.place(x=150, y=370)
+            "Roboto Medium", -14), width=115, fg_color="black", button_color="black", variable=self.clicktype_var, command=self.clicktype_event, values=["Single", "Double", "Triple", "Hold"])
+        self.clicktypemenu.place(x=160, y=90)
 
         self.clicktypetxt = customtkinter.CTkLabel(
             master=self.frame, text="Click Type:", text_font=("Roboto Medium", -15))
-        self.clicktypetxt.place(x=130, y=340)
+        self.clicktypetxt.place(x=145, y=60)
 
         self.clickinterval_var = customtkinter.StringVar(
             master=self.frame, value=str(0.01))
 
         self.clickinterval = customtkinter.CTkEntry(master=self.frame, text_font=(
             "Roboto Medium", -14), width=80, textvariable=self.clickinterval_var)
-        self.clickinterval.place(x=100, y=440)
+        self.clickinterval.place(x=110, y=380)
 
         self.clickintervaltxt = customtkinter.CTkLabel(
             master=self.frame, text="Click interval", text_font=("Roboto Medium", -14))
-        self.clickintervaltxt.place(x=70, y=410)
+        self.clickintervaltxt.place(x=80, y=350)
 
         self.secondstxt = customtkinter.CTkLabel(
-            master=self.frame, text="seconds", text_font=("Roboto Medium", -13), width=10)
-        self.secondstxt.place(x=185, y=445)
+            master=self.frame, text="secs", text_font=("Roboto Medium", -13), width=10)
+        self.secondstxt.place(x=195, y=385)
+
+        self.repeat_var = IntVar()
+        self.repeat_var.set(value=1)
+
+        self.repeat = customtkinter.CTkRadioButton(master=self.frame, text="Repeat", value=0, variable=self.repeat_var,
+                                                   command=self.repeat_event, text_font=("Roboto Medium", -13), width=20, height=20)
+        self.repeat.place(x=20, y=140)
+
+        self.repeatstopped = customtkinter.CTkRadioButton(master=self.frame, text="Repeat until stopped", value=1,
+                                                          variable=self.repeat_var, command=self.repeat_event, text_font=("Roboto Medium", -13), width=20, height=20)
+        self.repeatstopped.place(x=20, y=170)
+
+        self.currentlocation = customtkinter.CTkCheckBox(
+            master=self.frame, text="current location", text_font=("Roboto Medium", -13), width=20, height=20)
+        self.currentlocation.place(x=20, y=220)
+
+        self.repeattimes = spinbox.FloatSpinbox(
+            master=self.frame, width=105, height=25, step_size=1)
+        self.repeattimes.place(x=160, y=135)
+
+        self.currentlocation.select()
+        self.repeattimes.set(1)
+        self.repeatstopped.select()
 
     def buttonmenu_event(self, choice):
         global button1
@@ -127,14 +147,28 @@ class App(customtkinter.CTk):
             clicktype = "Single"
         if choice == "Double":
             clicktype = "Double"
+        if choice == "Triple":
+            clicktype = "Triple"
+        if choice == "Hold":
+            clicktype = "Hold"
 
-    def start_button1(self):
-        threading.Thread(target=self.autoHold).start()
-        self.start_hold_button.configure(state="disabled")
+    def repeat_event(self):
+        global repeattype
+
+        if self.repeat_var.get() == 0:
+            repeattype = 0
+        if self.repeat_var.get() == 1:
+            repeattype = 1
 
     def start_button2(self):
-        threading.Thread(target=self.autoClick).start()
-        self.start_auto_button.configure(state="disabled")
+        if clicktype == "Single" or clicktype == "Double" or clicktype == "Triple":
+            threading.Thread(target=self.autoClick).start()
+            self.start_auto_button.configure(state="disabled")
+            self.stop_auto_button.configure(state="enabled")
+        else:
+            threading.Thread(target=self.autoHold).start()
+            self.start_auto_button.configure(state="disabled")
+            self.stop_auto_button.configure(state="enabled")
 
     def on_press(self, key):
         global pause
@@ -147,7 +181,7 @@ class App(customtkinter.CTk):
         if self.auto and key == holdm_key:
             self.auto = False
             pause = True
-            self.stop_button1()
+            self.stop_button2()
 
     def autoHold(self):
         self.auto = True
@@ -178,57 +212,128 @@ class App(customtkinter.CTk):
         lis.start()
 
         self.interval = float(self.clickinterval.get())
+        if repeattype == 1:
+            while self.auto1:
+                if not pause:
+                    if button1 == "left" and clicktype == "Single":
+                        pyautogui.click(button="left")
+                        pyautogui.PAUSE = self.interval
+                    if button1 == "middle" and clicktype == "Single":
+                        pyautogui.click(button="middle")
+                        pyautogui.PAUSE = self.interval
+                    if button1 == "right" and clicktype == "Single":
+                        pyautogui.click(button="right")
+                        pyautogui.PAUSE = self.interval
 
-        while self.auto1:
-            if not pause:
-                if button1 == "left" and clicktype == "Single":
-                    pyautogui.click(button="left")
-                    pyautogui.PAUSE = self.interval
-                if button1 == "middle" and clicktype == "Single":
-                    pyautogui.click(button="middle")
-                    pyautogui.PAUSE = self.interval
-                if button1 == "right" and clicktype == "Single":
-                    pyautogui.click(button="right")
-                    pyautogui.PAUSE = self.interval
+                    if button1 == "left" and clicktype == "Double":
+                        pyautogui.doubleClick(button="left")
+                        pyautogui.PAUSE = self.interval
+                    if button1 == "middle" and clicktype == "Double":
+                        pyautogui.doubleClick(button="middle")
+                        pyautogui.PAUSE = self.interval
+                    if button1 == "right" and clicktype == "Double":
+                        pyautogui.doubleClick(button="right")
+                        pyautogui.PAUSE = self.interval
 
-                if button1 == "left" and clicktype == "Double":
-                    pyautogui.doubleClick(button="left")
-                    pyautogui.PAUSE = self.interval
-                if button1 == "middle" and clicktype == "Double":
-                    pyautogui.doubleClick(button="middle")
-                    pyautogui.PAUSE = self.interval
-                if button1 == "right" and clicktype == "Double":
-                    pyautogui.doubleClick(button="right")
-                    pyautogui.PAUSE = self.interval
-            if pause:
-                break
+                    if button1 == "left" and clicktype == "Triple":
+                        pyautogui.tripleClick(button="left")
+                        pyautogui.PAUSE = self.interval
+                    if button1 == "middle" and clicktype == "Triple":
+                        pyautogui.tripleClick(button="middle")
+                        pyautogui.PAUSE = self.interval
+                    if button1 == "right" and clicktype == "Triple":
+                        pyautogui.tripleClick(button="right")
+                        pyautogui.PAUSE = self.interval
+                if pause:
+                    break
+        else:
+            for i in range(int(self.repeattimes.get()) + 1):
+                if not pause:
+                    if button1 == "left" and clicktype == "Single":
+                        pyautogui.click(button="left")
+                        pyautogui.PAUSE = self.interval
+                    if button1 == "middle" and clicktype == "Single":
+                        pyautogui.click(button="middle")
+                        pyautogui.PAUSE = self.interval
+                    if button1 == "right" and clicktype == "Single":
+                        pyautogui.click(button="right")
+                        pyautogui.PAUSE = self.interval
+
+                    if button1 == "left" and clicktype == "Double":
+                        pyautogui.doubleClick(button="left")
+                        pyautogui.PAUSE = self.interval
+                    if button1 == "middle" and clicktype == "Double":
+                        pyautogui.doubleClick(button="middle")
+                        pyautogui.PAUSE = self.interval
+                    if button1 == "right" and clicktype == "Double":
+                        pyautogui.doubleClick(button="right")
+                        pyautogui.PAUSE = self.interval
+
+                    if button1 == "left" and clicktype == "Triple":
+                        pyautogui.tripleClick(button="left")
+                        pyautogui.PAUSE = self.interval
+                    if button1 == "middle" and clicktype == "Triple":
+                        pyautogui.tripleClick(button="middle")
+                        pyautogui.PAUSE = self.interval
+                    if button1 == "right" and clicktype == "Triple":
+                        pyautogui.tripleClick(button="right")
+                        pyautogui.PAUSE = self.interval
+
+                    if i == int(self.repeattimes.get()):
+                        pause = True
+
+                if pause:
+                    pause = True
+                    self.auto1 = False
+                    self.stop_button2()
+                    break
         lis.stop()
-
-    def stop_button1(self):
-        pause = True
-        self.auto = False
-
-        if button1 == "left":
-            pyautogui.mouseUp(button="left")
-        if button1 == "middle":
-            pyautogui.mouseUp(button="middle")
-        if button1 == "right":
-            pyautogui.mouseUp(button="right")
-
-        self.start_hold_button.configure(state="enabled")
 
     def stop_button2(self):
         pause = True
-        self.auto1 = False
 
         if button1 == "left" and clicktype == "Single":
+            self.auto1 = False
             pyautogui.mouseUp(button="left")
         if button1 == "middle" and clicktype == "Single":
+            self.auto1 = False
             pyautogui.mouseUp(button="middle")
         if button1 == "right" and clicktype == "Single":
+            self.auto1 = False
+            pyautogui.mouseUp(button="right")
+
+        if button1 == "left" and clicktype == "Double":
+            self.auto1 = False
+            pyautogui.mouseUp(button="left")
+        if button1 == "middle" and clicktype == "Double":
+            self.auto1 = False
+            pyautogui.mouseUp(button="middle")
+        if button1 == "right" and clicktype == "Double":
+            self.auto1 = False
+            pyautogui.mouseUp(button="right")
+
+        if button1 == "left" and clicktype == "Triple":
+            self.auto1 = False
+            pyautogui.mouseUp(button="left")
+        if button1 == "middle" and clicktype == "Triple":
+            self.auto1 = False
+            pyautogui.mouseUp(button="middle")
+        if button1 == "right" and clicktype == "Triple":
+            self.auto1 = False
+            pyautogui.mouseUp(button="right")
+
+        if button1 == "left" and clicktype == "Hold":
+            self.auto = False
+            pyautogui.mouseUp(button="left")
+        if button1 == "middle" and clicktype == "Hold":
+            self.auto = False
+            pyautogui.mouseUp(button="middle")
+        if button1 == "right" and clicktype == "Hold":
+            self.auto = False
             pyautogui.mouseUp(button="right")
 
         self.start_auto_button.configure(state="enabled")
+        self.stop_auto_button.configure(state="disabled")
 
     def on_close(self, event=0):
         self.destroy()
