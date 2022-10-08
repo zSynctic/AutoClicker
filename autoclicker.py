@@ -4,6 +4,7 @@ import pyautogui
 import customtkinter
 import threading
 import spinbox
+import time
 from PIL import Image, ImageTk
 from pynput.keyboard import *
 from tkinter import IntVar
@@ -125,6 +126,9 @@ class App(customtkinter.CTk):
         self.repeattimes.set(1)
         self.repeatstopped.select()
 
+        self.lis1 = Listener(on_press=self.on_press)
+        self.lis1.start()
+
     def buttonmenu_event(self, choice):
         global button1
 
@@ -157,7 +161,11 @@ class App(customtkinter.CTk):
 
     def start_button2(self):
         if clicktype == "Single" or clicktype == "Double" or clicktype == "Triple":
-            threading.Thread(target=self.autoClick).start()
+            try:
+                au = threading.Thread(target=self.autoClick)
+                au.start()
+            except:
+                pass
             self.start_auto_button.configure(state="disabled")
             self.stop_auto_button.configure(state="enabled")
         else:
@@ -165,7 +173,21 @@ class App(customtkinter.CTk):
             self.start_auto_button.configure(state="disabled")
             self.stop_auto_button.configure(state="enabled")
 
+    def listener(self):
+        time.sleep(0.1)
+        self.lis = Listener(on_press=self.on_press1)
+        self.lis.start()
+
     def on_press(self, key):
+        global pause
+
+        if not self.auto1 and clicktype == "Single" or clicktype == "Double" or clicktype == "Triple" and key == autoclick_key:
+            pause = False
+            self.lis1.stop()
+            self.start_button2()
+            self.listener()
+
+    def on_press1(self, key):
         global pause
 
         if self.auto1 and key == autoclick_key:
@@ -202,9 +224,6 @@ class App(customtkinter.CTk):
         self.auto = False
         self.auto1 = True
         pause = False
-
-        lis = Listener(on_press=self.on_press)
-        lis.start()
 
         self.interval = float(self.clickinterval.get())
         if repeattype == 1:
@@ -282,7 +301,7 @@ class App(customtkinter.CTk):
                     self.auto1 = False
                     self.stop_button2()
                     break
-        lis.stop()
+        self.lis.stop()
 
     def stop_button2(self):
         pause = True
@@ -290,6 +309,7 @@ class App(customtkinter.CTk):
         if button1 == "left" and clicktype == "Single":
             self.auto1 = False
             pyautogui.mouseUp(button="left")
+
         if button1 == "middle" and clicktype == "Single":
             self.auto1 = False
             pyautogui.mouseUp(button="middle")
