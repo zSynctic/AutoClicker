@@ -1,6 +1,6 @@
 [![header](https://capsule-render.vercel.app/api?type=cylinder&color=timeGradient&section=header&text=AutoClicker&fontSize=90&animation=fadeIn)](https://github.com/zSynctic/AutoClicker)
 
-# What is a autoclicker?
+# What is a AutoClicker?
 
 **A AutoClicker is a program that can automatically click or press buttons.**
 
