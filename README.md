@@ -12,7 +12,7 @@
 
 **More updates are on the way!**
 
-![Screenshot 2022-10-02 151244](https://user-images.githubusercontent.com/71632495/193451078-de5316e6-e7de-4897-9423-a114ffec36e3.png)
+![Screenshot 2022-10-22 090711](https://user-images.githubusercontent.com/71632495/197323085-8bd23345-8f68-47da-ba77-1a93d3557742.png)
 
 ## DOWNLOAD
 
