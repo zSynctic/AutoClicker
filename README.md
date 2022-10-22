@@ -22,7 +22,7 @@
 
 ### Don't forget to give a ⭐!
 
-### Features
+# Features
 
 - Fast autoclicking
 - Free and Open Source <br />
