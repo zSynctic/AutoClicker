@@ -1,13 +1,12 @@
+from PIL import Image, ImageTk
+from pynput.keyboard import *
+from tkinter import IntVar
 import sys
 import os
 import pyautogui
 import customtkinter
 import threading
 import spinbox
-import time
-from PIL import Image, ImageTk
-from pynput.keyboard import *
-from tkinter import IntVar
 
 autoclick_key = Key.f5
 holdm_key = Key.f6
@@ -66,11 +65,11 @@ class App(customtkinter.CTk):
         self.protocol("WM_DELETE_WINDOW", self.on_close)
 
         self.start_auto_button = customtkinter.CTkButton(master=self.frame, text="Start", fg_color=(
-            "black"), text_font=("Roboto Medium", -16), command=self.start_button2)
+            "black"), text_font=("Roboto Medium", -16), command=self.start_button)
         self.start_auto_button.place(x=80, y=275)
 
         self.stop_auto_button = customtkinter.CTkButton(master=self.frame, text="Stop", fg_color=(
-            "black"), text_font=("Roboto Medium", -16), state="disabled", command=self.stop_button2)
+            "black"), text_font=("Roboto Medium", -16), state="disabled", command=self.stop_button)
         self.stop_auto_button.place(x=80, y=310)
 
         self.buttonmenu_var = customtkinter.StringVar(value="left")
@@ -126,9 +125,6 @@ class App(customtkinter.CTk):
         self.repeattimes.set(1)
         self.repeatstopped.select()
 
-        self.lis1 = Listener(on_press=self.on_press)
-        self.lis1.start()
-
     def buttonmenu_event(self, choice):
         global button1
 
@@ -159,13 +155,9 @@ class App(customtkinter.CTk):
         if self.repeat_var.get() == 1:
             repeattype = 1
 
-    def start_button2(self):
+    def start_button(self):
         if clicktype == "Single" or clicktype == "Double" or clicktype == "Triple":
-            try:
-                au = threading.Thread(target=self.autoClick)
-                au.start()
-            except:
-                pass
+            threading.Thread(target=self.autoClick).start()
             self.start_auto_button.configure(state="disabled")
             self.stop_auto_button.configure(state="enabled")
         else:
@@ -173,32 +165,19 @@ class App(customtkinter.CTk):
             self.start_auto_button.configure(state="disabled")
             self.stop_auto_button.configure(state="enabled")
 
-    def listener(self):
-        time.sleep(0.1)
-        self.lis = Listener(on_press=self.on_press1)
-        self.lis.start()
-
     def on_press(self, key):
-        global pause
-
-        if not self.auto1 and clicktype == "Single" or clicktype == "Double" or clicktype == "Triple" and key == autoclick_key:
-            pause = False
-            self.lis1.stop()
-            self.start_button2()
-            self.listener()
-
-    def on_press1(self, key):
         global pause
 
         if self.auto1 and key == autoclick_key:
             self.auto1 = False
             pause = True
-            self.stop_button2()
+            print("stopped")
+            self.stop_button()
 
         if self.auto and key == holdm_key:
             self.auto = False
             pause = True
-            self.stop_button2()
+            self.stop_button()
 
     def autoHold(self):
         self.auto = True
@@ -224,6 +203,9 @@ class App(customtkinter.CTk):
         self.auto = False
         self.auto1 = True
         pause = False
+
+        lis1 = Listener(on_press=self.on_press)
+        lis1.start()
 
         self.interval = float(self.clickinterval.get())
         if repeattype == 1:
@@ -299,11 +281,11 @@ class App(customtkinter.CTk):
                 if pause:
                     pause = True
                     self.auto1 = False
-                    self.stop_button2()
+                    self.stop_button()
                     break
-        self.lis.stop()
+                lis1.stop()
 
-    def stop_button2(self):
+    def stop_button(self):
         pause = True
 
         if button1 == "left" and clicktype == "Single":
