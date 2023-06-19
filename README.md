@@ -12,7 +12,7 @@
 
 **More updates are on the way!**
 
-![Screenshot 2022-10-22 090711](https://user-images.githubusercontent.com/71632495/197323085-8bd23345-8f68-47da-ba77-1a93d3557742.png)
+![Screenshot 2023-06-19 222803](https://github.com/zSynctic/AutoClicker/assets/71632495/1d600ebc-c124-413e-ae7a-1ba2346e4de9)
 
 ## DOWNLOAD
 
