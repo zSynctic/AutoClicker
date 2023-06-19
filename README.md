@@ -39,7 +39,7 @@
 - Virus Free
 
 
-*Warning: When running AutoClicker.exe a Blue Window Will Probably Popup.* \
+*Warning: When running AutoClicker.exe a Blue Window Might Popup.* \
 To Run The Application You Have To Press **More Info** And Then **Run Anyways**.
 
 © zSynctic
