@@ -43,7 +43,6 @@
 To Run The Application You Have To Press **More Info** And Then **Run Anyways**.
 
 © zSynctic
-
 <br> [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
 ![Github - Downloads](https://img.shields.io/github/downloads/zSynctic/autoclicker/total?label=Github%20Downloads)
