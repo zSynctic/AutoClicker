@@ -38,5 +38,11 @@
 - Set how many times you want to repeat <br />
 - Virus Free
 
+
+*Warning: When running AutoClicker.exe a Blue Window Will Probably Popup.* \
+To Run The Application You Have To Press **More Info** And Then **Run Anyways**.
+
+© zSynctic
+
 ![Github - Downloads](https://img.shields.io/github/downloads/zSynctic/autoclicker/total?label=Github%20Downloads)
 ![SourceForge - Downloads](https://img.shields.io/sourceforge/dt/autoclickersync?label=SourceForge%20Downloads)
