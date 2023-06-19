@@ -26,7 +26,7 @@
 
 - Fast autoclicking
 - Free and Open Source <br />
-- Choose between which mouse button to click as <br />
+- Choose between which mouse button or keyboard button to click as <br />
 - Hold the mouse button down <br />
 - No advertisements <br />
 - Convenient - Hotkey work while application is in background <br />
