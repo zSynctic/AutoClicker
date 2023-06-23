@@ -48,7 +48,7 @@
 *Warning: When running AutoClicker.exe a Blue Window Might Popup.* \
 To Run The Application You Have To Press **More Info** And Then **Run Anyways**.
 
-**Important: If you are sharing this program. Please Include the official Download Link**
+**Important: If you are sharing this program. Please Include the official Download Link** <br/ >
 Official Download Link: https://github.com/zSynctic/AutoClicker/releases/download/v1.0.5/AutoClicker-1.0.5.exe
 
 © zSynctic
