@@ -12,19 +12,22 @@
 
 **More updates are on the way!**
 
-![Screenshot 2023-06-19 222803](https://github.com/zSynctic/AutoClicker/assets/71632495/1d600ebc-c124-413e-ae7a-1ba2346e4de9)
+![Image1](https://github.com/zSynctic/AutoClicker/assets/71632495/1d600ebc-c124-413e-ae7a-1ba2346e4de9)
 
-# How to use?
-
-**First choose the button you want to be clicking from the menu or you can even type one that isn't in the menu like keyboard keys for example: W, choose your clicking type then press F5 or press the start button to start the autoclicking then stop it by pressing F5 again or by pressing the button, for the clicktype Hold you can start it by pressing F6 and stop it using F6 again.**
-
-## DOWNLOAD
+## Installation
 
 ### [<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/zSynctic/AutoClicker?display_name=release&label=Windows&logo=Windows&logoColor=019df4&style=for-the-badge" width="350">](https://github.com/zSynctic/AutoClicker/releases/download/v1.0.5/AutoClicker-1.0.5.exe)
 
 ### [![Download AutoClicker](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/autoclickersync/files/v1.0.5/AutoClicker-1.0.5.exe/download)
 
 ### Don't forget to give a ⭐!
+
+# How to use?
+
+**First choose the button you want to be clicking from the menu or you can even type one that isn't in the menu like keyboard keys for example: W, choose your clicking type then press F5 or press the start button to start the autoclicking then stop it by pressing F5 again or by pressing the button, for the clicktype Hold you can start it by pressing F6 and stop it using F6 again.**
+
+# Example
+![Image2](https://github.com/zSynctic/AutoClicker/assets/71632495/b0f81ba8-25ad-43e9-9b42-daee47d3ad39)
 
 # Features
 
