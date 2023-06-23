@@ -25,7 +25,8 @@
 **First choose the button you want to be clicking from the menu or you can even type one that isn't in the menu like keyboard keys for example: W, choose your clicking type then press F5 or press the start button to start the autoclicking then stop it by pressing F5 again or by pressing the button, for the clicktype Hold you can start it by pressing F6 and stop it using F6 again.**
 
 # Example
-![Image1](https://github.com/zSynctic/AutoClicker/assets/71632495/1d600ebc-c124-413e-ae7a-1ba2346e4de9) ![Image2](https://github.com/zSynctic/AutoClicker/assets/71632495/b0f81ba8-25ad-43e9-9b42-daee47d3ad39) 
+![Image1](https://github.com/zSynctic/AutoClicker/assets/71632495/63d22fcf-09aa-49d9-9d78-be9f3af466b1)  ![Image2](https://github.com/zSynctic/AutoClicker/assets/71632495/6c91bf26-8790-4ded-877a-ee075ad481cc)
+
 
 # Features
 
