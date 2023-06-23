@@ -48,6 +48,9 @@
 *Warning: When running AutoClicker.exe a Blue Window Might Popup.* \
 To Run The Application You Have To Press **More Info** And Then **Run Anyways**.
 
+**Important: If you are sharing this program. Please Include the official Download Link**
+Official Download Link: https://github.com/zSynctic/AutoClicker/releases/download/v1.0.5/AutoClicker-1.0.5.exe
+
 © zSynctic
 
 <br> [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
