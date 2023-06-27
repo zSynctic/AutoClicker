@@ -1,7 +1,7 @@
 [![header](https://capsule-render.vercel.app/api?type=cylinder&color=timeGradient&section=header&text=AutoClicker&fontSize=90&animation=fadeIn)](https://github.com/zSynctic/AutoClicker)
 
 **Important: If you are sharing this program. Please Include the official Download Link** <br />
-Official Download Link: https://github.com/zSynctic/AutoClicker/releases/download/v1.0.5/AutoClicker-1.0.5.exe
+Official Download Link: [Download](https://github.com/zSynctic/AutoClicker/releases/download/v1.0.5/AutoClicker-1.0.5.exe)
 
 If you have any bugs or issues with the program you can open a issue.
 
