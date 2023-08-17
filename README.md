@@ -55,7 +55,7 @@ To Run The Application You Have To Press **More Info** And Then **Run Anyways**.
 
 © zSynctic
 
-<a href="https://www.buymeacoffee.com/zsynctic" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+<a href="https://www.buymeacoffee.com/zsynctic" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-blue.png" alt="Buy Me A Coffee" style="height: 50px !important;width: 217px !important;" ></a>
 
 <br> [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
