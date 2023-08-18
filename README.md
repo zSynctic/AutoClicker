@@ -5,6 +5,8 @@ Official Download Link: [Download](https://github.com/zSynctic/AutoClicker/relea
 
 If you have any bugs or issues with the program you can open a issue.
 
+**Note: I'm thinking of changing the name to something more unique because many have the same name since the program got a bit popular**
+
 # What is a AutoClicker?
 
 **A AutoClicker is a program that can automatically click or press buttons.**
