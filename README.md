@@ -5,7 +5,7 @@ Official Download Link: [Download](https://github.com/zSynctic/AutoClicker/relea
 
 If you have any bugs or issues with the program you can open a issue.
 
-**Note: I'm thinking of changing the name of the autoclicker soon to something more unique because many have the same name since the program got a bit popular**
+**Note: I'm thinking of changing the name of the autoclicker soon since the program got a bit popular to something more unique because many have the same name**
 
 # What is a AutoClicker?
 
