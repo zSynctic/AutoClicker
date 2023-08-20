@@ -15,7 +15,7 @@ If you have any bugs or issues with the program you can open a issue.
 
 **Bored of the old-looking AutoClickers here is a powerful easy-to-use AutoClicker with many features and a Modern GUI!** <br />
 
-**This is a simple easy-to-use user-friendly AutoClicker that can automatically click the mouse so fast and hold the mouse button down and has many other features!** <br />
+**This is a simple easy-to-use user-friendly fully-fledged AutoClicker that can automatically click the mouse so fast and hold the mouse button down and has many other features!** <br />
 
 **More updates are on the way!**
 
@@ -37,8 +37,9 @@ If you have any bugs or issues with the program you can open a issue.
 
 # Features
 
-- Fast autoclicking
+- Ultra Fast autoclicking
 - Free and Open Source <br />
+- Fully-Fledged AutoClicker <br />
 - Choose between which mouse button or keyboard button to click as <br />
 - Hold the mouse button down <br />
 - No advertisements <br />
