@@ -60,7 +60,7 @@ To Run The Application You Have To Press **More Info** And Then **Run Anyways**.
 
 <a href="https://www.buymeacoffee.com/zsynctic" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-blue.png" alt="Buy Me A Coffee" style="height: 58px !important;width: 217px !important;" ></a>
 
-<br> [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+<br>
 
 ![Github - Downloads](https://img.shields.io/github/downloads/zSynctic/autoclicker/total?label=Github%20Downloads)
 ![SourceForge - Downloads](https://img.shields.io/sourceforge/dt/autoclickersync?label=SourceForge%20Downloads)
