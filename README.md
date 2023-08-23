@@ -7,15 +7,15 @@ If you have any bugs or issues with the program you can open a issue.
 
 **Note: I'm thinking of changing the name of the autoclicker soon since the program got a bit popular to something more unique because many have the same name**
 
-# What is a AutoClicker?
+# What is this AutoClicker?
 
-**A AutoClicker is a program that can automatically click or press buttons.**
+**AutoClicker is a modern open source program that can automatically click and hold mouse buttons or press keyboard keys so fast.**
 
 # Why use this AutoClicker?
 
 **Bored of the old-looking AutoClickers here is a powerful easy-to-use AutoClicker with many features and a Modern GUI!** <br />
 
-**This is a simple easy-to-use user-friendly fully-fledged AutoClicker that can automatically click the mouse so fast and hold the mouse button down and has many other features!** <br />
+**This is a simple easy-to-use user-friendly fully-fledged AutoClicker that can automatically click the mouse and keyboard so fast and hold the mouse button down and has many other features!** <br />
 
 **More updates are on the way!**
 
