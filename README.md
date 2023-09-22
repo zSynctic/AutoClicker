@@ -50,7 +50,7 @@ Official Download Link: [Download](https://github.com/zSynctic/AutoClicker/relea
 - Set how many times you want to repeat <br />
 - Virus Free
 
-[![Stargazers repo roster for @zSynctic/AutoClicker](https://reporoster.com/stars/zSynctic/AutoClicker)](https://github.com/zSynctic/AutoClicker/stargazers)
+[![Stargazers repo roster for @zSynctic/AutoClicker](https://reporoster.com/stars/dark/zSynctic/AutoClicker)](https://github.com/zSynctic/AutoClicker/stargazers)
 
 *Warning: When running AutoClicker.exe a Blue Window Might Popup.* \
 To Run The Application You Have To Press **More Info** And Then **Run Anyways**.
