@@ -3,7 +3,7 @@
 **Important: If you are sharing this program. Please Include the official Download Link** <br />
 Official Download Link: [Download](https://github.com/zSynctic/AutoClicker/releases/download/v1.0.5/AutoClicker-1.0.5.exe)
 
-**Note: I'm thinking of changing the name of the autoclicker soon since the program got a bit popular to something more unique because many have the same name.**
+[![Stargazers repo roster for @zSynctic/AutoClicker](https://reporoster.com/stars/dark/zSynctic/AutoClicker)](https://github.com/zSynctic/AutoClicker/stargazers)
 
 # What is this AutoClicker?
 
@@ -49,8 +49,6 @@ Official Download Link: [Download](https://github.com/zSynctic/AutoClicker/relea
 - Set the click interval <br />
 - Set how many times you want to repeat <br />
 - Virus Free
-
-[![Stargazers repo roster for @zSynctic/AutoClicker](https://reporoster.com/stars/dark/zSynctic/AutoClicker)](https://github.com/zSynctic/AutoClicker/stargazers)
 
 *Warning: When running AutoClicker.exe a Blue Window Might Popup.* \
 To Run The Application You Have To Press **More Info** And Then **Run Anyways**.
