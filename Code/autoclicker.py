@@ -12,7 +12,7 @@ import os
 import pydirectinput
 import customtkinter
 import threading
-import Spinbox.spinbox as spinbox
+import spinbox as spinbox
 
 autoclick_key = Key.f5
 holdm_key = Key.f6
@@ -45,7 +45,7 @@ class App(customtkinter.CTk):
         self.title("AutoClicker")
         self.geometry(f"{self.WIDTH}x{self.HEIGHT}")
 
-        self.p1 = ImageTk.PhotoImage(file=resource("Assets/icon.ico"))
+        self.p1 = ImageTk.PhotoImage(file=resource("../Assets/icon.ico"))
         self.wm_iconbitmap()
         self.iconphoto(False, self.p1)
 
