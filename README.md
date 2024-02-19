@@ -59,6 +59,6 @@ To Run The Application You Have To Press **More Info** And Then **Run Anyways**.
 
 <br>
 
-![Github - Downloads](https://img.shields.io/github/downloads/zSynctic/autoclicker/total?label=Github%20Downloads)
+![Github - Downloads](https://img.shields.io/github/downloads/zSynctic/Autoclicker/total?label=Github%20Downloads)
 ![SourceForge - Downloads](https://img.shields.io/sourceforge/dt/autoclickersync?label=SourceForge%20Downloads)
 
