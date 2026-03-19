@@ -55,13 +55,13 @@ To Run The Application You Have To Press **More Info** And Then **Run Anyways**.
 
 # License
 
-*Copyright (c) 2026 zSynctic
-*This project is licensed under the GNU General Public License v3.0.* \
+**Copyright (c) 2026 zSynctic**
+**This project is licensed under the GNU General Public License v3.0.**
 
 # Trademark Notice
 
-*“AutoClicker” is developed by zSynctic.
-The name, branding, and identity of this project may not be used for modified or redistributed versions without explicit permission.* \
+**“AutoClicker” is developed by zSynctic.**
+**The name, branding, and identity of this project may not be used for modified or redistributed versions without explicit permission.** 
 
 © zSynctic
 
