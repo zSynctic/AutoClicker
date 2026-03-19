@@ -53,6 +53,16 @@ Official Download Link: [Download](https://github.com/zSynctic/AutoClicker/relea
 *Warning: When running AutoClicker.exe a Blue Window Might Popup.* \
 To Run The Application You Have To Press **More Info** And Then **Run Anyways**.
 
+# License
+
+*Copyright (c) 2026 zSynctic
+*This project is licensed under the GNU General Public License v3.0.* \
+
+# Trademark Notice
+
+*“AutoClicker” is developed by zSynctic.
+The name, branding, and identity of this project may not be used for modified or redistributed versions without explicit permission.* \
+
 © zSynctic
 
 <a href="https://www.buymeacoffee.com/zsynctic" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-blue.png" alt="Buy Me A Coffee" style="height: 58px !important;width: 217px !important;" ></a>
