@@ -1,5 +1,5 @@
 # Author: Synctic
-# License: MIT | Copyright (c) 2022 Synctic
+# License: GPL-3.0 | Copyright (c) 2022 Synctic
 # Version: 1.05
 
 from PIL import Image, ImageTk
