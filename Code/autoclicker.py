@@ -1,11 +1,14 @@
 # Author: Synctic
 # License: GPL-3.0 | Copyright (c) 2022 Synctic
-# Version: 1.05
+# Version: 1.06
 
-from PIL import Image, ImageTk
+from PIL import ImageTk
+from CTkToolTip import *
 from pynput.keyboard import *
 from pynput.keyboard import Key, Listener
 from pynput import keyboard
+import time
+import webbrowser
 import pydirectinput
 import sys
 import os
@@ -15,7 +18,6 @@ import threading
 import spinbox as spinbox
 
 autoclick_key = Key.f5
-holdm_key = Key.f6
 
 button1 = "Left"
 clicktype = "Single"
@@ -27,13 +29,16 @@ class App(customtkinter.CTk):
     auto1 = False
 
     WIDTH = 315
-    HEIGHT = 440
+    HEIGHT = 455
 
     global resource
 
     def resource(relative_path):
-        base_path = getattr(sys, "_MEIPASS", os.path.dirname(
-            os.path.abspath(__file__)))
+        if hasattr(sys, "_MEIPASS"):
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
         return os.path.join(base_path, relative_path)
 
     customtkinter.set_appearance_mode("dark")
@@ -42,12 +47,15 @@ class App(customtkinter.CTk):
     def __init__(self):
         super().__init__()
 
-        self.title("AutoClicker")
+        self.title("ZClicker")
         self.geometry(f"{self.WIDTH}x{self.HEIGHT}")
 
-        self.p1 = ImageTk.PhotoImage(file=resource("../Assets/icon.ico"))
+        self.p1 = ImageTk.PhotoImage(file=resource("Assets/icon.ico"))
+        
         self.wm_iconbitmap()
         self.iconphoto(False, self.p1)
+        
+        self.pause = False
 
         self.grid_columnconfigure(1, weight=1)
         self.grid_rowconfigure(0, weight=1)
@@ -59,10 +67,46 @@ class App(customtkinter.CTk):
         self.frame.grid_columnconfigure(1, weight=1)
         self.frame.grid_columnconfigure(5, weight=1)
 
-        self.title = customtkinter.CTkLabel(
-            master=self.frame, text="AutoClicker", font=("Roboto Medium", -16)
+        self.titlel = customtkinter.CTkLabel(
+            master=self.frame,
+            text="ZClicker",
+            font=("Roboto Medium", -16),
+            cursor="hand2",
         )
-        self.title.grid(row=1, column=1, pady=10)
+        self.titlel.grid(row=1, column=1, pady=10)
+        
+        self.tooltip = CTkToolTip(
+            self.titlel,
+            message="Open ZClicker Website",
+            delay=0,
+        )
+
+        self.titlel.bind(
+            "<Button-1>",
+            lambda event: webbrowser.open_new_tab(
+                "https://ZClicker.com"
+            ),
+        )
+
+        self.copyright = customtkinter.CTkButton(
+            master=self.frame,
+            text="""Copyright (C) 2022 - ZClicker
+By zSynctic""",
+            text_color="#686F7A",
+            bg_color="transparent",
+            fg_color="transparent",
+            hover_color="#2B2B2B",
+            cursor="hand2",
+            font=("Roboto Medium", -9),
+        )
+        self.copyright.place(x=75, y=32)
+
+        self.copyright.bind(
+            "<Button-1>",
+            lambda event: webbrowser.open_new_tab(
+                "https://github.com/zSynctic/AutoClicker"
+            ),
+        )
 
         self.protocol("WM_DELETE_WINDOW", self.on_close)
 
@@ -146,6 +190,21 @@ class App(customtkinter.CTk):
             master=self.frame, text="secs", font=("Roboto Medium", -13), width=10
         )
         self.secondstxt.place(x=195, y=385)
+        
+        self.upgrade_btn = customtkinter.CTkButton(
+            master=self.frame,
+            text="Upgrade to Pro",
+            width=140,
+            height=26,
+            fg_color="transparent",
+            bg_color="transparent",
+            hover_color="#2B2B2B",
+            text_color="#1F6AA5",
+            font=("Roboto Condensed", -13, "underline"),
+            cursor="hand2",
+            command=lambda: webbrowser.open_new_tab("https://ZClicker.com"),
+        )
+        self.upgrade_btn.place(x=81, y=408)
 
         self.repeat_var = customtkinter.IntVar()
         self.repeat_var.set(value=1)
@@ -222,12 +281,7 @@ class App(customtkinter.CTk):
             repeattype = 1
 
     def start_button(self):
-        if (
-            clicktype == "Single"
-            or clicktype == "Double"
-            or clicktype == "Triple"
-            and not self.pause
-        ):
+        if clicktype in ["Single", "Double", "Triple", "Hold"] and not self.pause:
             self.lis2.stop()
             self.pause = False
 
@@ -238,33 +292,14 @@ class App(customtkinter.CTk):
             self.buttonmenu.configure(state="disabled")
             self.start_auto_button.configure(state="disabled")
             self.stop_auto_button.configure(state="enabled")
-        else:
-            if not self.pause:
-                self.lis2.stop()
-                self.pause = False
-
-                self.autohol = threading.Thread(target=self.autoHold)
-                self.autohol.start()
-
-                self.buttonmenu.configure(state="normal")
-                self.buttonmenu.configure(state="disabled")
-                self.start_auto_button.configure(state="disabled")
-                self.stop_auto_button.configure(state="enabled")
 
     def on_press1(self, key):
         if not self.auto1 and key == autoclick_key:
             self.pause = False
             self.auto1 = True
-            self.auto = False
             self.lis2.stop()
             self.start_button()
-
-        if not self.auto and key == holdm_key:
-            self.pause = False
-            self.lis2.stop()
-            self.start_button()
-            self.auto1 = True
-
+    
     def on_press(self, key):
         if self.auto1 and key == autoclick_key:
             self.pause = True
@@ -273,38 +308,6 @@ class App(customtkinter.CTk):
             self.lis2 = keyboard.Listener(on_press=self.on_press1)
             self.lis2.start()
 
-        if self.auto and key == holdm_key:
-            self.pause = True
-            self.auto = False
-            self.stop_button()
-            self.lis2 = keyboard.Listener(on_press=self.on_press1)
-            self.lis2.start()
-
-    def autoHold(self):
-        self.auto = True
-        self.auto1 = False
-        self.pause = False
-
-        lis = Listener(on_press=self.on_press)
-        lis.start()
-
-        while self.auto:
-            if not self.pause:
-                if button1 == "Left":
-                    pydirectinput.mouseDown(button="left")
-                elif button1 == "Middle":
-                    pydirectinput.mouseDown(button="middle")
-                elif button1 == "Right":
-                    pydirectinput.mouseDown(button="right")
-                else:
-                    pydirectinput.keyDown(keys=self.buttonmenu.get().lower())
-                    pydirectinput.PAUSE = self.interval
-
-            if self.pause:
-                self.autohol.join()
-                break
-        lis.stop()
-
     def autoClick(self):
         self.auto = False
         self.auto1 = True
@@ -312,113 +315,151 @@ class App(customtkinter.CTk):
 
         lis1 = Listener(on_press=self.on_press)
         lis1.start()
+        try:
+            try:
+                self.interval = float(self.clickinterval.get())
+            except:
+                self.interval = 0.01
+                
+            if repeattype == 1:
+                while self.auto1:
+                    if not self.pause:
+                        if clicktype == "Single":
+                            if self.buttonmenu.get() == "Left":
+                                pydirectinput.click(button="left")
+                                pydirectinput.PAUSE = self.interval
+                            elif self.buttonmenu.get() == "Middle":
+                                pydirectinput.click(button="middle")
+                                pydirectinput.PAUSE = self.interval
+                            elif self.buttonmenu.get() == "Right":
+                                pydirectinput.click(button="right")
+                                pydirectinput.PAUSE = self.interval
+                            else:
+                                pydirectinput.press(
+                                    key=button1.lower())
+                                pydirectinput.PAUSE = self.interval
 
-        self.interval = float(self.clickinterval.get())
-        if repeattype == 1:
-            while self.auto1:
-                if not self.pause:
-                    if clicktype == "Single":
-                        if self.buttonmenu.get() == "Left":
-                            pydirectinput.click(button="left")
-                            pydirectinput.PAUSE = self.interval
-                        elif self.buttonmenu.get() == "Middle":
-                            pydirectinput.click(button="middle")
-                            pydirectinput.PAUSE = self.interval
-                        elif self.buttonmenu.get() == "Right":
-                            pydirectinput.click(button="right")
-                            pydirectinput.PAUSE = self.interval
-                        else:
-                            pydirectinput.press(
-                                keys=self.buttonmenu.get().lower())
-                            pydirectinput.PAUSE = self.interval
+                        if clicktype == "Double":
+                            if button1 == "Left":
+                                pydirectinput.doubleClick(button="left")
+                                pydirectinput.PAUSE = self.interval
+                            elif button1 == "Middle":
+                                pydirectinput.doubleClick(button="middle")
+                                pydirectinput.PAUSE = self.interval
+                            elif button1 == "Right":
+                                pydirectinput.doubleClick(button="right")
+                                pydirectinput.PAUSE = self.interval
+                            else:
+                                pydirectinput.press(
+                                    key=button1.lower())
+                                pydirectinput.PAUSE = self.interval
 
-                    if clicktype == "Double":
-                        if button1 == "Left":
-                            pydirectinput.doubleClick(button="left")
-                            pydirectinput.PAUSE = self.interval
-                        elif button1 == "Middle":
-                            pydirectinput.doubleClick(button="middle")
-                            pydirectinput.PAUSE = self.interval
-                        elif button1 == "Right":
-                            pydirectinput.doubleClick(button="right")
-                            pydirectinput.PAUSE = self.interval
-                        else:
-                            pydirectinput.press(
-                                keys=self.buttonmenu.get().lower())
-                            pydirectinput.PAUSE = self.interval
+                        if clicktype == "Triple":
+                            if button1 == "Left":
+                                pydirectinput.tripleClick(button="left")
+                                pydirectinput.PAUSE = self.interval
+                            elif button1 == "Middle":
+                                pydirectinput.tripleClick(button="middle")
+                                pydirectinput.PAUSE = self.interval
+                            elif button1 == "Right":
+                                pydirectinput.tripleClick(button="right")
+                                pydirectinput.PAUSE = self.interval
+                            else:
+                                pydirectinput.press(
+                                    key=button1.lower())
+                                pydirectinput.PAUSE = self.interval
+                        
+                        if clicktype == "Hold":
+                            if button1 == "Left":
+                                pydirectinput.mouseDown(button="left")
+                            elif button1 == "Middle":
+                                pydirectinput.mouseDown(button="middle")
+                            elif button1 == "Right":
+                                pydirectinput.mouseDown(button="right")
+                            else:
+                                pydirectinput.keyDown(key=button1.lower())
+                                            
+                            while self.auto1 and not self.pause:
+                                time.sleep(0.05)
+                                            
+                            break
+                    if self.pause:
+                        break
+            else:
+                for i in range(int(self.repeattimes.get()) + 1):
+                    if not self.pause:
+                        if clicktype == "Single":
+                            if self.buttonmenu.get() == "Left":
+                                pydirectinput.click(button="left")
+                                pydirectinput.PAUSE = self.interval
+                            elif self.buttonmenu.get() == "Middle":
+                                pydirectinput.click(button="middle")
+                                pydirectinput.PAUSE = self.interval
+                            elif self.buttonmenu.get() == "Right":
+                                pydirectinput.click(button="right")
+                                pydirectinput.PAUSE = self.interval
+                            else:
+                                pydirectinput.press(key=button1.lower())
+                                pydirectinput.PAUSE = self.interval
 
-                    if clicktype == "Triple":
-                        if button1 == "Left":
-                            pydirectinput.tripleClick(button="left")
-                            pydirectinput.PAUSE = self.interval
-                        elif button1 == "Middle":
-                            pydirectinput.tripleClick(button="middle")
-                            pydirectinput.PAUSE = self.interval
-                        elif button1 == "Right":
-                            pydirectinput.tripleClick(button="right")
-                            pydirectinput.PAUSE = self.interval
-                        else:
-                            pydirectinput.press(
-                                keys=self.buttonmenu.get().lower())
-                            pydirectinput.PAUSE = self.interval
-                if self.pause:
-                    break
-        else:
-            for i in range(int(self.repeattimes.get()) + 1):
-                if not self.pause:
-                    if clicktype == "Single":
-                        if self.buttonmenu.get() == "Left":
-                            pydirectinput.click(button="left")
-                            pydirectinput.PAUSE = self.interval
-                        elif self.buttonmenu.get() == "Middle":
-                            pydirectinput.click(button="middle")
-                            pydirectinput.PAUSE = self.interval
-                        elif self.buttonmenu.get() == "Right":
-                            pydirectinput.click(button="right")
-                            pydirectinput.PAUSE = self.interval
-                        else:
-                            pydirectinput.press(keys=self.buttonmenu.get())
-                            pydirectinput.PAUSE = self.interval
+                        if clicktype == "Double":
+                            if button1 == "Left":
+                                pydirectinput.doubleClick(button="left")
+                                pydirectinput.PAUSE = self.interval
+                            elif button1 == "Middle":
+                                pydirectinput.doubleClick(button="middle")
+                                pydirectinput.PAUSE = self.interval
+                            elif button1 == "Right":
+                                pydirectinput.doubleClick(button="right")
+                                pydirectinput.PAUSE = self.interval
+                            else:
+                                pydirectinput.press(
+                                    key=button1.lower())
+                                pydirectinput.PAUSE = self.interval
 
-                    if clicktype == "Double":
-                        if button1 == "Left":
-                            pydirectinput.doubleClick(button="left")
-                            pydirectinput.PAUSE = self.interval
-                        elif button1 == "Middle":
-                            pydirectinput.doubleClick(button="middle")
-                            pydirectinput.PAUSE = self.interval
-                        elif button1 == "Right":
-                            pydirectinput.doubleClick(button="right")
-                            pydirectinput.PAUSE = self.interval
-                        else:
-                            pydirectinput.press(
-                                keys=self.buttonmenu.get().lower())
-                            pydirectinput.PAUSE = self.interval
+                        if clicktype == "Triple":
+                            if button1 == "Left":
+                                pydirectinput.tripleClick(button="left")
+                                pydirectinput.PAUSE = self.interval
+                            elif button1 == "Middle":
+                                pydirectinput.tripleClick(button="middle")
+                                pydirectinput.PAUSE = self.interval
+                            elif button1 == "Right":
+                                pydirectinput.tripleClick(button="right")
+                                pydirectinput.PAUSE = self.interval
+                            else:
+                                pydirectinput.press(
+                                    key=button1.lower())
+                                pydirectinput.PAUSE = self.interval
+                            
+                        if clicktype == "Hold":
+                            if button1 == "Left":
+                                pydirectinput.mouseDown(button="left")
+                            elif button1 == "Middle":
+                                pydirectinput.mouseDown(button="middle")
+                            elif button1 == "Right":
+                                pydirectinput.mouseDown(button="right")
+                            else:
+                                pydirectinput.keyDown(key=button1.lower())
+                                            
+                            while self.auto1 and not self.pause:
+                                time.sleep(0.05)
+                                            
+                            break
 
-                    if clicktype == "Triple":
-                        if button1 == "Left":
-                            pydirectinput.tripleClick(button="left")
-                            pydirectinput.PAUSE = self.interval
-                        elif button1 == "Middle":
-                            pydirectinput.tripleClick(button="middle")
-                            pydirectinput.PAUSE = self.interval
-                        elif button1 == "Right":
-                            pydirectinput.tripleClick(button="right")
-                            pydirectinput.PAUSE = self.interval
-                        else:
-                            pydirectinput.press(
-                                keys=self.buttonmenu.get().lower())
-                            pydirectinput.PAUSE = self.interval
+                        if i == int(self.repeattimes.get()):
+                            self.pause = True
 
-                    if i == int(self.repeattimes.get()):
-                        self.pause = True
-
-                if self.pause:
-                    self.auto1 = False
-                    self.stop_button()
-                    self.autoclc.join()
-                    break
+                    if self.pause:
+                        self.auto1 = False
+                        self.stop_button()
+                        break
+                
+        finally:
+            try:
                 lis1.stop()
+            except:
+                pass
 
     def stop_button(self):
         self.pause = True
@@ -455,19 +496,20 @@ class App(customtkinter.CTk):
             elif button1 == "Right":
                 self.auto1 = False
                 pydirectinput.mouseUp(button="right")
-
+        
         if clicktype == "Hold":
             if button1 == "Left":
-                self.auto = False
+                self.auto1 = False
                 pydirectinput.mouseUp(button="left")
             elif button1 == "Middle":
-                self.auto = False
+                self.auto1 = False
                 pydirectinput.mouseUp(button="middle")
             elif button1 == "Right":
-                self.auto = False
+                self.auto1 = False
                 pydirectinput.mouseUp(button="right")
             else:
-                pydirectinput.keyUp(button=self.buttonmenu.get().lower())
+                self.auto1 = False
+                pydirectinput.keyUp(key=self.buttonmenu.get().lower())
 
         self.buttonmenu.configure(state="normal")
         self.start_auto_button.configure(state="enabled")
@@ -482,7 +524,6 @@ class App(customtkinter.CTk):
 
 if __name__ == "__main__":
     app = App()
-    app.attributes("-topmost", True)
     app.resizable(False, False)
     app.update()
     app.start()
