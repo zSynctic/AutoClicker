@@ -74,7 +74,7 @@ Unlock advanced features:
 ### 🚀 Get ZClicker Pro
 
 <a href="https://zclicker.com">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=2f6fff&height=120&section=header&text=🚀%20Get%20ZClicker%20Pro&fontSize=58&fontColor=ffffff&animation=fadeIn" width="350"/>
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=2f6fff&height=120&section=header&text=🚀%20Get%20ZClicker%20Pro&fontSize=58&fontColor=ffffff&animation=fadeIn" width="700"/>
 </a>
 
 *Warning: When running AutoClicker.exe a Blue Window Might Popup.* \
