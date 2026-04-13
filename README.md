@@ -1,13 +1,17 @@
 [![header](https://capsule-render.vercel.app/api?type=cylinder&color=timeGradient&section=header&text=AutoClicker&fontSize=90&animation=fadeIn)](https://github.com/zSynctic/AutoClicker)
 
 **Important: If you are sharing this program. Please Include the official Download Link** <br />
-Official Download Link: [Download](https://github.com/zSynctic/AutoClicker/releases/download/v1.0.5/AutoClicker-1.0.5.exe)
+Official Download Link: [Download](https://github.com/zSynctic/AutoClicker/releases/download/v1.0.6/AutoClicker-1.0.6.exe)
+
+🌐 **Website (Get ZClicker Pro):** https://zclicker.com
 
 [![Stargazers repo roster for @zSynctic/AutoClicker](https://reporoster.com/stars/dark/zSynctic/AutoClicker)](https://github.com/zSynctic/AutoClicker/stargazers)
 
 # What is this AutoClicker?
 
-**AutoClicker is a modern open source program that can automatically click and hold mouse buttons or press keyboard keys so fast.**
+**ZClicker (AutoClicker) is a modern open source program that can automatically click and hold mouse buttons or press keyboard keys with speed and precision.**
+
+The free version provides essential autoclicking features, while **ZClicker Pro** unlocks advanced functionality such as background window clicking and more control.
 
 # Why use this AutoClicker?
 
@@ -19,9 +23,9 @@ Official Download Link: [Download](https://github.com/zSynctic/AutoClicker/relea
 
 ## Installation
 
-### [<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/zSynctic/AutoClicker?display_name=release&label=Windows&logo=Windows&logoColor=019df4&style=for-the-badge" width="350">](https://github.com/zSynctic/AutoClicker/releases/download/v1.0.5/AutoClicker-1.0.5.exe)
+### [<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/zSynctic/AutoClicker?display_name=release&label=Windows&logo=Windows&logoColor=019df4&style=for-the-badge" width="350">](https://github.com/zSynctic/AutoClicker/releases/download/v1.0.5/AutoClicker-1.0.6.exe)
 
-### [![Download AutoClicker](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/autoclickersync/files/v1.0.5/AutoClicker-1.0.5.exe/download)
+### [![Download AutoClicker](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/autoclickersync/files/v1.0.6/AutoClicker-1.0.6.exe/download)
 
 ### Don't forget to give a ⭐!
 
@@ -49,6 +53,17 @@ Official Download Link: [Download](https://github.com/zSynctic/AutoClicker/relea
 - Set the click interval <br />
 - Set how many times you want to repeat <br />
 - Virus Free
+
+# ZClicker Pro
+
+Unlock advanced features:
+
+- Background Window Clicking
+- Click Position Clicking
+- Customizable Hotkeys
+- Advanced control for multitasking
+
+👉 Get Pro: https://zclicker.com
 
 *Warning: When running AutoClicker.exe a Blue Window Might Popup.* \
 To Run The Application You Have To Press **More Info** And Then **Run Anyways**.
