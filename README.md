@@ -25,7 +25,7 @@ The free version provides essential autoclicking features, while **ZClicker Pro*
 
 <p align="center">
   <a href="https://zclicker.com">
-    <img src="https://capsule-render.vercel.app/api?type=rect&color=2f6fff&height=80&section=header&text=🚀%20Get%20ZClicker%20Pro&fontSize=28&fontColor=ffffff&animation=fadeIn" />
+    <img src="https://capsule-render.vercel.app/api?type=rect&color=2f6fff&height=80&section=header&text=🚀%20Get%20ZClicker%20Pro&fontSize=28&fontColor=ffffff&animation=fadeIn&width=350" width="100%"/>
   </a>
 </p>
 
