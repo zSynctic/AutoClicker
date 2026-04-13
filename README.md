@@ -27,7 +27,7 @@ The free version provides essential autoclicking features, while **ZClicker Pro*
   <img src="https://capsule-render.vercel.app/api?type=rect&color=2f6fff&height=120&section=header&text=🚀%20Get%20ZClicker%20Pro&fontSize=58&fontColor=ffffff&animation=fadeIn" width="350"/>
 </a>
 
-### [<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/zSynctic/AutoClicker?display_name=release&label=Windows&logo=Windows&logoColor=019df4&style=for-the-badge" width="350">](https://github.com/zSynctic/AutoClicker/releases/download/v1.0.5/AutoClicker-1.0.6.exe)
+### [<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/zSynctic/AutoClicker?display_name=release&label=Windows&logo=Windows&logoColor=019df4&style=for-the-badge" width="350">](https://github.com/zSynctic/AutoClicker/releases/download/v1.0.6/AutoClicker-1.0.6.exe)
 
 ### [![Download AutoClicker](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/autoclickersync/files/v1.0.6/AutoClicker-1.0.6.exe/download)
 
