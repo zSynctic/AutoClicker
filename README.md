@@ -23,7 +23,7 @@ The free version provides essential autoclicking features, while **ZClicker Pro*
 
 ## Installation
 
-### [![Get ZClicker Pro](https://img.shields.io/badge/Get%20ZClicker%20Pro-2f6fff?style=for-the-badge&logo=windows&logoColor=white)](https://zclicker.com)
+### [![Get ZClicker Pro]("https://img.shields.io/badge/Get%20ZClicker%20Pro-2f6fff?style=for-the-badge&logo=windows&logoColor=white" width="350">)](https://zclicker.com)
 
 ### [<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/zSynctic/AutoClicker?display_name=release&label=Windows&logo=Windows&logoColor=019df4&style=for-the-badge" width="350">](https://github.com/zSynctic/AutoClicker/releases/download/v1.0.5/AutoClicker-1.0.6.exe)
 
