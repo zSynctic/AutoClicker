@@ -1,4 +1,4 @@
-<img width="1360" height="787" alt="temp-17-16-34-image" src="https://github.com/user-attachments/assets/33bc73af-c0dd-4667-910a-10d6fec57572" />
+<img width="1536" height="903" alt="Screenshot 2026-04-14 003446" src="https://github.com/user-attachments/assets/3a2a5d8d-bb4f-42e9-b7d4-98f37530388e" />
 
 <p align="center">
   <strong>🚀 This is ZClicker Pro — unlock powerful features like background window clicking</strong>
