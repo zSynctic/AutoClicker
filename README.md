@@ -1,4 +1,4 @@
-[![header](https://capsule-render.vercel.app/api?type=cylinder&color=timeGradient&section=header&text=AutoClicker&fontSize=90&animation=fadeIn)](https://github.com/zSynctic/AutoClicker)
+<img width="1360" height="787" alt="temp-17-16-34-image" src="https://github.com/user-attachments/assets/33bc73af-c0dd-4667-910a-10d6fec57572" /><img width="1360" height="787" alt="temp-17-16-34-image" src="https://github.com/user-attachments/assets/7a3d4514-c75e-498d-8f31-90f6833c8333" />[![header](https://capsule-render.vercel.app/api?type=cylinder&color=timeGradient&section=header&text=AutoClicker&fontSize=90&animation=fadeIn)](https://github.com/zSynctic/AutoClicker)
 
 **Important: If you are sharing this program. Please Include the official Download Link** <br />
 Official Download Link: [Download](https://github.com/zSynctic/AutoClicker/releases/download/v1.0.6/AutoClicker-1.0.6.exe)
@@ -38,7 +38,8 @@ The free version provides essential autoclicking features, while **ZClicker Pro*
 **First choose the button you want to be clicking from the menu or you can even type one that isn't in the menu like keyboard keys for example: W, choose your clicking type then press F5 or press the start button to start the autoclicking then stop it by pressing F5 again or by pressing the button, for the clicktype Hold you can start it by pressing F6 and stop it using F6 again.**
 
 # Examples
-![Image1](https://github.com/zSynctic/AutoClicker/assets/71632495/63d22fcf-09aa-49d9-9d78-be9f3af466b1)  ![Image2](https://github.com/zSynctic/AutoClicker/assets/71632495/6c91bf26-8790-4ded-877a-ee075ad481cc)
+![Image1](https://github.com/zSynctic/AutoClicker/assets/71632495/63d22fcf-09aa-49d9-9d78-be9f3af466b1)  ![Image2](https://github.com/zSynctic/AutoClicker/assets/71632495/6c91bf26-8790-4ded-877a-ee075ad481cc) 
+<img width="1360" height="787" alt="temp-17-16-34-image" src="https://github.com/user-attachments/assets/4e8d72d9-f9b0-49c7-b48c-234fdd911ae3" />
 
 
 # Features
