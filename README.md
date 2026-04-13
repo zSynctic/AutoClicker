@@ -1,4 +1,4 @@
-<img width="1360" height="787" alt="temp-17-16-34-image" src="https://github.com/user-attachments/assets/33bc73af-c0dd-4667-910a-10d6fec57572" /><img width="1360" height="787" alt="temp-17-16-34-image" src="https://github.com/user-attachments/assets/7a3d4514-c75e-498d-8f31-90f6833c8333" />[![header](https://capsule-render.vercel.app/api?type=cylinder&color=timeGradient&section=header&text=AutoClicker&fontSize=90&animation=fadeIn)](https://github.com/zSynctic/AutoClicker)
+<img width="1360" height="787" alt="temp-17-16-34-image" src="https://github.com/user-attachments/assets/33bc73af-c0dd-4667-910a-10d6fec57572" />[![header](https://capsule-render.vercel.app/api?type=cylinder&color=timeGradient&section=header&text=AutoClicker&fontSize=90&animation=fadeIn)](https://github.com/zSynctic/AutoClicker)
 
 **Important: If you are sharing this program. Please Include the official Download Link** <br />
 Official Download Link: [Download](https://github.com/zSynctic/AutoClicker/releases/download/v1.0.6/AutoClicker-1.0.6.exe)
