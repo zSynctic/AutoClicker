@@ -8,8 +8,6 @@ Official Download Link: [Download](https://github.com/zSynctic/AutoClicker/relea
 
 🌐 **Website (Get ZClicker Pro):** https://zclicker.com
 
-[![Stargazers repo roster for @zSynctic/AutoClicker](https://reporoster.com/stars/dark/zSynctic/AutoClicker)](https://github.com/zSynctic/AutoClicker/stargazers)
-
 # What is this AutoClicker?
 
 **ZClicker (AutoClicker) is a modern open source program that can automatically click and hold mouse buttons or press keyboard keys with speed and precision.**
