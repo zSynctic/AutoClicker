@@ -63,7 +63,9 @@ Unlock advanced features:
 - Customizable Hotkeys
 - Advanced control for multitasking
 
-👉 Get Pro: https://zclicker.com
+### 🚀 Get ZClicker Pro
+
+[![Get ZClicker Pro](https://img.shields.io/badge/Get%20ZClicker%20Pro-2f6fff?style=for-the-badge&logo=windows&logoColor=white)](https://zclicker.com)
 
 *Warning: When running AutoClicker.exe a Blue Window Might Popup.* \
 To Run The Application You Have To Press **More Info** And Then **Run Anyways**.
