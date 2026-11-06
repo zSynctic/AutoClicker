@@ -572,7 +572,7 @@ By zSynctic""",
         try:
             try:
                 self.interval = float(self.clickinterval.get())
-            except:
+            except ValueError:
                 self.interval = 0.01
                 
             if repeattype == 1:
